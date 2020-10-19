@@ -1,15 +1,21 @@
 <meta charset="utf-8">
 <script>
-    let nums = 0;
-    while (nums <= 100) {
-        let check = true;
-        for (let i = 2; i < nums; i++) {
-            if (nums % i === 0) {
-                check = false;
-                break;
-            }
-        }
-        if (check) console.log(nums);
-        nums++;
+    let maxNum = 999
+    let NumRank = {
+        number: prompt('Введите число от 0 до 999'),
+        units: 0,
+        tens: 0,
+        hundreds: 0,
     }
+    if (NumRank.number <= 9) {
+        NumRank.units = NumRank.number
+    } else if (NumRank.number <= 999) {
+        NumRank.units = Math.floor(NumRank.number % 10)
+        NumRank.tens = Math.floor(NumRank.number / 10 % 10)
+        NumRank.hundreds = Math.floor(NumRank.number / 100 % 10)
+    } else {
+        NumRank.number = 0
+        console.log('Вы ввели число за диапазоном 0 - 999')
+    }
+    console.log(NumRank)
 </script>
